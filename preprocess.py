@@ -54,7 +54,7 @@ filepath = "./datasets/CNItalianDataFiltered.csv"
 
 load(filepath)
 
-finaldict = featurize_texts(texts,tokenizer,labels,max_length = 128,add_special_tokens = True, is_text_pair = False, has_toktype_ids = True)
+finaldict = featurize_texts(texts,tokenizer,labels,max_length = 128,add_special_tokens = True, is_text_pair = True, has_toktype_ids = True)
 
 dataset = TensorDataset(finaldict["input_ids"],finaldict["attention_mask"],finaldict["token_type_ids"],finaldict["label"])
 
