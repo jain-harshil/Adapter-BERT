@@ -45,7 +45,7 @@ config = BottleneckAdapterBertConfig.from_pretrained(c.model_name_or_path)
 
 if len(match) == 0:
     config.layers_to_adapt = c.layers_to_adapt
-    config.num_labels = 3
+    config.num_labels = 9
 
 if type(config) is ParallelAdapterBertConfig:
     config.adjust()
