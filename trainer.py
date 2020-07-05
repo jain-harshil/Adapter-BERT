@@ -79,7 +79,7 @@ def save_model(model, optimizer, scheduler, step, dev_scores, params):
 
         output_eval_file = os.path.join(eval_output_dir, "eval_result.txt")
         with open(output_eval_file, "w") as writer:
-            logger.info("***** Eval results {} *****".format("XCOPA EN DEV"))
+            logger.info("***** Eval results {} *****".format("CONCEPTNET DEV"))
             for key in sorted(dev_scores.keys()):
                 logger.info("  %s = %s", key, str(dev_scores[key]))
                 writer.write("%s = %s\n" % (key, str(dev_scores[key])))
@@ -244,7 +244,7 @@ def evaluate(eval_dataset, model, params):
     eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=c.eval_batch_size)
     
     # Eval!
-    logger.info("***** Running evaluation {} *****".format("XCOPA VAL"))
+    logger.info("***** Running evaluation {} *****".format("CONCEPTNET VAL"))
     logger.info("  Num examples = %d", len(eval_dataset))
     logger.info("  Batch size = %d", c.eval_batch_size)
     eval_loss = 0.0
