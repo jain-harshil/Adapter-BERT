@@ -37,3 +37,5 @@ One important thing: by default, when you instantiate a AdapterBertModel or Adap
 Transformer's parameters will be frozen (due to a call to freeze_original_params in the constructor of AdapterBertModel).
 Before you start fine-tuning the AdapterBert model on you final downstream task, you will need to unfreeze the original
 Transformer's parameters: just call the unfreeze_original_params method of AdapterBertModel before the final finetuning.
+
+The file preprocess.py filters the target language words from ConceptNet which forms the first step to show zero shot transfer for MultiChoice Reasoning.
