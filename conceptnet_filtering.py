@@ -4,6 +4,7 @@ import csv
 
 df = pd.DataFrame(columns=['FirstWord', 'SecondWord', 'Relation','Language'])
 
+LANGUAGE = "it"
 it = 0
 counter = 0
 for chunk in pd.read_csv('/content/drive/My Drive/conceptnet-assertions-5.7.0.csv.gz',chunksize = 5000, compression='gzip',error_bad_lines=False,header=None,usecols = [0,2],engine = 'python',quoting=csv.QUOTE_NONE):
@@ -33,7 +34,7 @@ for chunk in pd.read_csv('/content/drive/My Drive/conceptnet-assertions-5.7.0.cs
         else:
           m3 = re.search(r'.*\/([^-]*).*$',a2)
         word2 = m3.group(1)
-        if lang == 'it' and str(l[2][3:5]) == "it":
+        if lang == LANGUAGE and str(l[2][3:5]) == LANGUAGE:
           df.loc[counter] = [word1, word2, rel, lang]
           counter = counter+1
       else:
