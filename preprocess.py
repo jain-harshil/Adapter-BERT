@@ -67,5 +67,5 @@ train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 print('{:>5,} training samples'.format(train_size))
 print('{:>5,} validation samples'.format(val_size))
 
-# torch.save(train_dataset,'train_conceptnet_mbert.td')
-# torch.save(val_dataset,'dev_conceptnet_mbert.td')
+torch.save(train_dataset,'train_conceptnet_mbert.td')
+torch.save(val_dataset,'dev_conceptnet_mbert.td')
