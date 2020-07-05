@@ -4,7 +4,7 @@ import csv
 
 df = pd.DataFrame(columns=['FirstWord', 'SecondWord', 'Relation','Language'])
 
-LANGUAGE = "it"
+LANGUAGE = "it" #it stands for Italian
 it = 0
 counter = 0
 for chunk in pd.read_csv('/content/drive/My Drive/conceptnet-assertions-5.7.0.csv.gz',chunksize = 5000, compression='gzip',error_bad_lines=False,header=None,usecols = [0,2],engine = 'python',quoting=csv.QUOTE_NONE):
