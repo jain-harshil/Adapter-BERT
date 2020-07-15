@@ -73,13 +73,15 @@ class AdapterBertConfig(BertConfig):
 class BottleneckAdapterBertConfig(AdapterBertConfig):
     def __init__(self,
         adapter_residual = True,
-        add_intermediate_adapter = True,
+        add_intermediate_adapter = True,last_layer_dropout = 0.2,hidden_size = 0.2,
         **kwargs
     ):
         super().__init__(**kwargs)
 
         self.adapter_residual = adapter_residual
         self.add_intermediate_adapter = add_intermediate_adapter
+        self.last_layer_dropout = last_layer_dropout
+        self.hidden_size = hidden_size
 
 class AdapterBertIntermediate(BertIntermediate):
     def __init__(self, config, layer_index):

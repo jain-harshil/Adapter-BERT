@@ -56,14 +56,21 @@ class RunConfig():
     def __init__(self):
 
         # pretrained transformer model, supported one listed below
-        self.pretrained_transformer = 'bert-base-uncased'
+        self.pretrained_transformer = 'bert-base-multilingual-cased'
     
+        # ### training setup 
+        # self.model_name_or_path = self.pretrained_transformer #"/work/gglavas/models/siqa_copa/siqa_pretrained/mbert_cased/5/best" # self.pretrained_transformer
+        # ##
+        # self.train_set = "/content/drive/My Drive/Adapter_Code/datasets/train_conceptnet_mbert.td"
+        # self.val_set = "/content/drive/My Drive/Adapter_Code/datasets/dev_conceptnet_mbert.td"
+        # self.output_dir = "/content/drive/My Drive/Adapter_Code/datasets/conceptnet"
+
         ### training setup 
-        self.model_name_or_path = self.pretrained_transformer #"/work/gglavas/models/siqa_copa/siqa_pretrained/mbert_cased/5/best" # self.pretrained_transformer
+        self.model_name_or_path = "/content/drive/My Drive/Adapter_Code/datasets/conceptnet/best" # self.pretrained_transformer
         ##
-        self.train_set = "C:/Users/Dell_Owner/Desktop/Uni_Mannheim_Summer_Internship/Adapter_Code/datasets/mnli_train_serialized_EN_bert.td"
-        self.val_set = "C:/Users/Dell_Owner/Desktop/Uni_Mannheim_Summer_Internship/Adapter_Code/datasets/mnli/mnli_dev_serialized_EN_bert.td"
-        self.output_dir = "C:/Users/Dell_Owner/Desktop/Uni_Mannheim_Summer_Internship/Adapter_Code/parabert"
+        self.train_set = "/content/drive/My Drive/Adapter_Code/datasets/train_siqa.td"
+        self.val_set = "/content/drive/My Drive/Adapter_Code/datasets/test_siqa.td"
+        self.output_dir = "/content/drive/My Drive/Adapter_Code/datasets/siqa_finetune"
 
         self.train_batch_size = 8
         self.learning_rate = 3e-5
@@ -79,6 +86,8 @@ class RunConfig():
         self.num_evals_early_stop = 10
         self.eval_stop_metric = "Accuracy"
         self.eval_metric_increasing = True
+        self.last_layer_dropout = 0.2
+        self.hidden_size = 100
 
         # # adapter params
         self.layers_to_adapt = list(range(8, 12))

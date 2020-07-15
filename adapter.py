@@ -115,7 +115,7 @@ class AdapterBertForSequenceClassification(BertForSequenceClassification):
         super().__init__(config)
         self.bert = AdapterBertModel(config)
         self.bert.unfreeze_original_params(config)
-
+        
 ### Parallel Adapter
 
 class ParallelAdapterBertModel(BertModel):
