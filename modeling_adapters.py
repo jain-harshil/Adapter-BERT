@@ -151,6 +151,7 @@ class AdapterBertForSequenceClassification(BertForSequenceClassification):
     def __init__(self, config):
         super().__init__(config)
         self.bert = AdapterBertModel(config)
+        self.bert.unfreeze_original_params(config)
 
 # class AdapterBertForBiaffineParsing(BertForBiaffineParsing):
 #     def __init__(self, config):
@@ -161,6 +162,7 @@ class AdapterBertForMultichoiceQA(BertForMultichoiceQA):
     def __init__(self, config):
         super().__init__(config)
         self.bert = AdapterBertModel(config)
+        self.bert.unfreeze_original_params(config)
 
 # class AdapterBertForDynamicMLM(BertForDynamicMLM):
 #     def __init__(self, config):
